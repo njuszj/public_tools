@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{.PageTitle}}</title>
+  <style>
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>IMG VIEW</h1>
+  {{range.Imgs}}
+    <li><img src={{.Src}}></li>
+  {{end}}
+</body>
+</html>
