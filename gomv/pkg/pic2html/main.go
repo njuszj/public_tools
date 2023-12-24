@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "embed"
 	"html/template"
 	"log"
 	"os"
@@ -15,8 +16,8 @@ type ImgData struct {
 	Imgs      []Img
 }
 
-func Run(tmplSrcPath string, outputPath string) {
-	tmpl, err := template.ParseFiles(tmplSrcPath)
+func Run(tmplSrc string, outputPath string) {
+	tmpl, err := template.New("myteml").Parse(tmplSrc)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -29,11 +30,17 @@ func Run(tmplSrcPath string, outputPath string) {
 		Imgs: []Img{
 			{Src: "DSC_0164.JPG"},
 			{Src: "DSC_0181.JPG"},
+			{Src: "DSC_0182.JPG"},
+			{Src: "DSC_0183.JPG"},
+			{Src: "DSC_0185.JPG"},
 		},
 	}
 	tmpl.Execute(fp, data)
 }
 
+//go:embed tmpl.html
+var templateHTML string
+
 func main() {
-	Run("tmpl.html", "output.html")
+	Run(templateHTML, "output.html")
 }

@@ -1,20 +1,126 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Demo</title>
+  <title>IMG</title>
   <style>
     img {
-      max-width: 100%;
+      max-width:95%;
       height: auto;
     }
+    .cell {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+    }
+
+    .cell button {
+      width: 100%;
+      padding: 10%;
+      margin: 10%;
+      border-radius: 30%;
+    }
+
+    .img-box {
+      position: relative;
+      display: inline-block;
+    }
+    .button-group {
+      width: 100%;
+      position: relative;
+      top: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      visibility: hidden;
+    }
+    .cell:hover .button-group {
+      visibility: visible;
+    }
   </style>
+  <script>
+    function reindex() {
+      var root = document.getElementById("root")
+      var cells = root.getElementsByClassName("cell")
+      for (var i = 0; i < cells.length; i++) {
+        cells[i].id = "cell-" + (i + 1);
+      }
+    }
+
+    function merge(celli, cellj){
+
+    }
+
+    function swap(celli, cellj){
+        var cellx = document.getElementById(celli);
+        var celly = document.getElementById(cellj);
+        if (cellx && celly) {
+          var tempContent = cellx.innerHTML;
+          cellx.innerHTML = celly.innerHTML;
+          celly.innerHTML = tempContent;
+        }
+        reindex();
+    }
+  </script> 
 </head>
 <body>
   <h1>IMG VIEW</h1>
   
-    <li><img src=DSC_0164.JPG></li>
+  <div class="root" id="root">
+    <div class="cell">
+      <div class="img-box">
+        <img src=DSC_0164.JPG>
+      </div>
+      <div class="button-group">
+        <button>Up ↑</button>
+        <button>Down ↓</button>
+        <button>Merge Up ↑</button>
+        <button>Merge Down ↓</button>
+      </div>
+    </div>
   
-    <li><img src=DSC_0181.JPG></li>
+    <li>
+      <div class="img-box"><img src=DSC_0181.JPG></div>
+      <div class="button-group">
+        <button>Up ↑</button>
+        <button>Down ↓</button>
+        <button>Merge Up ↑</button>
+        <button>Merge Down ↓</button>
+      </div>
+    </li>
   
+    <li>
+      <div class="img-box"><img src=DSC_0182.JPG></div>
+      <div class="button-group">
+        <button>Up ↑</button>
+        <button>Down ↓</button>
+        <button>Merge Up ↑</button>
+        <button>Merge Down ↓</button>
+      </div>
+    </li>
+  
+    <li>
+      <div class="img-box"><img src=DSC_0183.JPG></div>
+      <div class="button-group">
+        <button>Up ↑</button>
+        <button>Down ↓</button>
+        <button>Merge Up ↑</button>
+        <button>Merge Down ↓</button>
+      </div>
+    </li>
+  
+    <li>
+      <div class="img-box"><img src=DSC_0185.JPG></div>
+      <div class="button-group">
+        <button>Up ↑</button>
+        <button>Down ↓</button>
+        <button>Merge Up ↑</button>
+        <button>Merge Down ↓</button>
+      </div>
+    </li>
+  </div>
+
+
 </body>
 </html>

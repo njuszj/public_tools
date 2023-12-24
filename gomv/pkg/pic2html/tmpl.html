@@ -4,14 +4,37 @@
   <title>IMG</title>
   <style>
     img {
-      max-width: 100%;
+      max-width: 80%;
       height: auto;
+    }
+    .img-box {
+      position: relative;
+      display: inline-block;
+    }
+    .button-group {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      display: none;
+    }
+    .img-box:hover .button-group {
+      display: block;
     }
   </style>
 </head>
 <body>
   <h1>IMG VIEW</h1>
   {{range.Imgs}}
-  <li><img src={{.ImgSrc}}></li>
+    <li>
+      <div class="img-box"><img src={{.Src}}></div>
+      <div class="button-group">
+        <button>Up ↑</button>
+        <button>Down ↓</button>
+        <button>Merge Up ↑</button>
+        <button>Merge Down ↓</button>
+      </div>
+    </li>
+  {{end}}
 </body>
 </html>
